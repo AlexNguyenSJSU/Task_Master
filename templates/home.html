@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <!-- The Head Section -->
+    <head>
+        <h1>HOME PAGE OF MANCHESTER UNITED</h1>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        {% block head %}{% endblock %}
+    </head>
+
+    <!-- The Body Section -->
+    <body>
+        {% block body %}{% endblock %}
+        <p>WELCOME CHRISTIAN ERIKSEN, TYRELL MALACIA, FRENKIE DE JONG, AND LISANDRO MARTINEZ!</p>
+        <div>
+            <img src="https://image.thanhnien.vn/w1024/Uploaded/2022/oqivotiw/2022_07_02/tyrell-malacia-7335.jpeg" alt="T.Malacia">
+        </div>
+        <div>
+            <img src="https://static-images.vnncdn.net/files/publish/2022/7/5/eriksen-mu-4-111.jpg" alt="C.Eriksen">
+        </div>
+        <div>
+            <img src="https://image.thanhnien.vn/w2048/Uploaded/2022/oqivotiw/2022_07_03/frenkie-de-jong-9406.jpeg" alt="F.De Jong">
+        </div>
+        <div>
+            <img src="https://static-images.vnncdn.net/files/publish/2022/5/19/lisandro-martinez-mu-647.jpg" alt="Lisandro Martinez">
+        </div>
+        <div>
+            <a href="http://127.0.0.1:5000/about">About Manchester United FC</a>
+        </div>
+    </body>
+</html>
