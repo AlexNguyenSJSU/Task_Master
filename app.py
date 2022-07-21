@@ -1,13 +1,16 @@
-from flask import Flask, redirect, render_template, url_for, request
+from flask import Flask, url_for, redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'#Telling our app where our database is located
+#Telling our app where our database is located:
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app) #the database has been initialized with the settings from our app
+#the database has been initialized with the settings from our app:
+db = SQLAlchemy(app) 
 
-class Todo(db.Model): #Set up the class
+#Set up the class:
+class Task_to_do(db.Model): 
     #Set up the columns:
     #First One is the id column: (The Integer that references the ID of each entry)
     id = db.Column(db.Integer, primary_key=True)
@@ -26,7 +29,7 @@ def home():
     if request.method == 'POST':
         #task_content is equal to the input content -> grab it
         task_content = request.form['content']
-        new_task = Todo(content=task_content)
+        new_task = Task_to_do(content=task_content)
         
         #Pushing it to the database:
         try:
@@ -37,12 +40,12 @@ def home():
             return 'There was something wrong when adding your task!'
 
     else: #Otherwise, we're just looking at the page
-        tasks = Todo.query.order_by(Todo.date_created).all() #This will look at all contents of database in order of the date they're created, return all of them
+        tasks = Task_to_do.query.order_by(Task_to_do.date_created).all() #This will look at all contents of database in order of the date they're created, return all of them
         return render_template('index.html', tasks = tasks) #Then, passing them into template.
 
 @app.route('/delete/<int:id>')
 def delete(id):
-    task_to_delete = Todo.query.get_or_404(id) #attempt to get that task by the id and if it doesn't exist -> going to 404
+    task_to_delete = Task_to_do.query.get_or_404(id) #attempt to get that task by the id and if it doesn't exist -> going to 404
 
     try:
         db.session.delete(task_to_delete)
@@ -53,7 +56,7 @@ def delete(id):
 
 @app.route('/update/<int:id>', methods = ['GET', 'POST'])
 def update(id):
-    task = Todo.query.get_or_404(id)
+    task = Task_to_do.query.get_or_404(id)
 
     if request.method == 'POST':
         task.content = request.form['content']
