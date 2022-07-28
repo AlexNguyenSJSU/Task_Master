@@ -1,28 +1,51 @@
 <!DOCTYPE html>
 
 <html>
-    <!-- The Head Section -->
-    <head>
-        <h1>HOME PAGE OF MANCHESTER UNITED</h1>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-        {% block head %}{% endblock %}
-    </head>
+<!-- The Head Section -->
 
-    <!-- The Body Section -->
-    <body>
-        {% block body %}{% endblock %}
-        <p>WELCOME CHRISTIAN ERIKSEN, TYRELL MALACIA, AND LISANDRO MARTINEZ!</p>
+<head>
+    <h1>HOME PAGE OF MANCHESTER UNITED</h1>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% block head %}{% endblock %}
+</head>
+
+<!-- The Body Section -->
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
         <div>
-            <img src="https://image.thanhnien.vn/w1024/Uploaded/2022/oqivotiw/2022_07_02/tyrell-malacia-7335.jpeg" alt="T.Malacia">
+            <a style="text-align: center;" class="navbar-brand" href="/">Task Master and Manchester United's Homepage</a>
         </div>
-        <div>
-            <img src="https://i.vietgiaitri.com/2022/7/16/christian-eriksen-den-mu-khat-vong-bay-cao-b6a-6544087.jpg" alt="C.Eriksen">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+            </ul>
         </div>
-        <div>
-            <img src="https://image-us.24h.com.vn/upload/3-2022/images/2022-07-17/MU-chinh-thuc-don-Lisandro-Martinez-fx36i1kxeac3yao--2--1658067272-583-width740height740.jpg" alt="L.Martinez">
-        </div>
-        <div>
-            <a href="http://127.0.0.1:5000/about">About Manchester United FC</a>
-        </div>
-    </body>
+    </nav>
+
+    {% block body %}{% endblock %}
+    <p>WELCOME CHRISTIAN ERIKSEN, TYRELL MALACIA, AND LISANDRO MARTINEZ!</p>
+    <div>
+        <img src="https://image.thanhnien.vn/w1024/Uploaded/2022/oqivotiw/2022_07_02/tyrell-malacia-7335.jpeg"
+            alt="T.Malacia">
+    </div>
+    <div>
+        <img src="https://i.vietgiaitri.com/2022/7/16/christian-eriksen-den-mu-khat-vong-bay-cao-b6a-6544087.jpg"
+            alt="C.Eriksen">
+    </div>
+    <div>
+        <img src="https://image-us.24h.com.vn/upload/3-2022/images/2022-07-17/MU-chinh-thuc-don-Lisandro-Martinez-fx36i1kxeac3yao--2--1658067272-583-width740height740.jpg"
+            alt="L.Martinez">
+    </div>
+</body>
+
 </html>
