@@ -17,6 +17,7 @@ p {
 
 h1 {
     text-align: center;
+    color: aquamarine;
 }
 
 a {
@@ -28,6 +29,7 @@ a {
 body {
     margin: 0;
     font-family: sans-serif;
+    background-color: darkslateblue;
 }
 
 td {
