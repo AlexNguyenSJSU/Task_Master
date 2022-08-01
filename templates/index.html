@@ -5,25 +5,25 @@
 {% endblock %}
 
 {% block body %}
-<div class="content">
+<div class="container">
     <h1>Task Master</h1>
     {% if tasks|length < 1 %}
         <h5 style="text-align: center; color: deepskyblue;">No tasks in the list. Create one now to be PRODUCTIVE!</h5>
     {% else %}
         <table border = 2>
                 <tr>
-                    <th style="text-align: center">Task</th>
-                    <th style="text-align: center">Adding Date</th>
-                    <th style="text-align: center">Action</th>
+                    <th style="text-align: center">TASK</th>
+                    <th style="text-align: center">ADDING DATE</th>
+                    <th style="text-align: center">ACTION</th>
                 </tr>
                 {% for task in tasks %} <!--Jinja2 syntax: grab the task we pass on the template-->
                     <tr>
                         <td>{{ task.content }}</td> <!--return the content of each task-->
                         <td>{{ task.date_created.date() }}</td> <!--return the time that the task is created-->
                         <td>
-                            <a href="/delete/{{task.id}}">Delete</a>
+                            <a href="/delete/{{task.id}}">DELETE</a>
                             <br>
-                            <a href="/update/{{task.id}}">Update</a>
+                            <a href="/update/{{task.id}}">UPDATE</a>
                         </td>
                     </tr>
                 {% endfor %}
